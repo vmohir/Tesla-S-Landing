@@ -1,0 +1,25 @@
+$fonts-base-folder: '../fonts' !default;
+
+@font-face {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 400;
+  src: url('#{$fonts-base-folder}/Montserrat-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: Montserrat;
+  src: url('#{$fonts-base-folder}/Montserrat-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: bold;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url('#{$fonts-base-folder}/Montserrat-Light.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 200;
+}
+
+:root {
+  --font-family-text: Arial, Helvetica, sans-serif;
+  --font-family-brand: Montserrat, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

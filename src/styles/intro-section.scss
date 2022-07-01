@@ -1,0 +1,28 @@
+.intro {
+  text-align: center;
+  padding-top: 7.5rem;
+}
+.intro__title {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  font-weight: 200;
+  line-height: 1.1;
+}
+.intro__description {
+  font-size: 1.25rem;
+  width: 75%;
+  min-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+  margin-bottom: 3rem;
+}
+
+.scroll-to-calculator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  border: 2px solid #000;
+  width: 75px;
+  height: 75px;
+}

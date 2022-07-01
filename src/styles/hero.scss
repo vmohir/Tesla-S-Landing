@@ -1,0 +1,25 @@
+.hero__image {
+  max-width: 100%;
+  @supports (object-fit: cover) {
+    max-height: calc(90vh - 72px);
+    height: 50vw;
+    width: 100vw;
+    object-fit: cover;
+  }
+}
+
+@supports not (object-fit: cover) {
+  .hero {
+    height: calc(90vh - 72px);
+    overflow: hidden;
+    position: relative;
+    .hero__image {
+      width: 100vw;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      right: 0;
+    }
+  }
+}

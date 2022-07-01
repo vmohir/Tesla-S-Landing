@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tesla S Model</title>
+  </head>
+  <body>
+    <%= require('./header.html') %>
+    <main>
+      <%= require('./intro.html') %>
+      <!-- prettier-ignore -->
+      <div>
+      <% P100D.forEach(p => { %>
+        <% p.hwy.forEach(k => { %>
+          <div class="t<%= p.temp %> w<%= p.wheelsize %> ac-<%= p.ac %> kmh<%= k.kmh %>"><%= k.kilometers %></div>
+        <% }); %>
+      <% }); %>
+    </div>
+    </main>
+  </body>
+</html>

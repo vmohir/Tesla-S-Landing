@@ -1,0 +1,136 @@
+<section id="range-calculator" class="calc">
+  <h1 class="calc__title">Range per Charge</h1>
+
+  <div class="calc__car">
+    <div class="car">
+      <picture>
+        <source media="(max-width: 700px)" srcset="../images/car-base.png" />
+        <source media="(min-width: 701px)" srcset="../images/car-base@2x.png" />
+        <img
+          class="car__image"
+          src="../images/car-base@2x.png"
+          alt="Tesla car kilometer calculator"
+        />
+      </picture>
+      <picture>
+        <source media="(max-width: 700px)" srcset="../images/car-wheel.png" />
+        <source media="(min-width: 701px)" srcset="../images/car-wheel@2x.png" />
+        <img
+          class="car__wheel car__wheel--right"
+          src="../images/car-wheel@2x.png"
+          aria-hidden="true"
+        />
+      </picture>
+      <picture>
+        <source media="(max-width: 700px)" srcset="../images/car-wheel.png" />
+        <source media="(min-width: 701px)" srcset="../images/car-wheel@2x.png" />
+        <img
+          class="car__wheel car__wheel--left"
+          src="../images/car-wheel@2x.png"
+          aria-hidden="true"
+        />
+      </picture>
+    </div>
+  </div>
+
+  <div class="calc__car-kilometers">
+    <div class="car-km">
+      <div class="car-km__brand">
+        <picture>
+          <source media="(max-width: 700px)" srcset="../images/100d.png" />
+          <source media="(min-width: 701px)" srcset="../images/100d@2x.png" />
+          <img class="car-km__logo" src="../images/100d@2x.png" aria-hidden="true" />
+        </picture>
+        <div class="car-km__indicator">
+          <span id="100d-km" class="car-km__value">400</span><span class="car-km__unit">KM</span>
+        </div>
+      </div>
+      <div class="car-km__brand">
+        <picture>
+          <source media="(max-width: 700px)" srcset="../images/p100d.png" />
+          <source media="(min-width: 701px)" srcset="../images/p100d@2x.png" />
+          <img class="car-km__logo" src="../images/p100d@2x.png" aria-hidden="true" />
+        </picture>
+        <div class="car-km__indicator">
+          <span id="p100d-km" class="car-km__value">400</span><span class="car-km__unit">KM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc__form">
+    <form id="range-calculator" class="calc-form">
+      <div class="calc-form__group">
+        <fieldset>
+          <legend class="calc-form__group-label">Speed</legend>
+          <label aria-label="Speed in kilometers per hour">
+            <input
+              type="number"
+              class="calc-form__number-input"
+              data-suffix="o"
+              step="10"
+              min="70"
+              max="140"
+              value="70"
+            />
+          </label>
+        </fieldset>
+      </div>
+
+      <div class="calc-form__group">
+        <fieldset>
+          <legend class="calc-form__group-label">Outside temperature</legend>
+          <label aria-label="Temperature value in centigrade">
+            <input
+              type="number"
+              class="calc-form__number-input"
+              step="10"
+              min="-10"
+              max="40"
+              value="20"
+            />
+          </label>
+          <label class="calc-form__ac-control">
+            <span>AC OFF</span>
+            <img src="../images/icon-fan-gray.svg" class="calc-form__ac-icon" aria-hidden="true" />
+            <input type="checkbox" />
+          </label>
+        </fieldset>
+      </div>
+
+      <div class="calc-form__group">
+        <fieldset>
+          <legend class="calc-form__group-label">Wheels</legend>
+
+          <input
+            type="radio"
+            class="calc-form__wheel-radio-input"
+            name="wheel-size"
+            value="19"
+            id="wheel-size-19"
+          />
+          <label class="calc-form__wheel-option surface1" for="wheel-size-19">
+            <img
+              src="../images/icon-wheel.svg"
+              class="calc-form__wheel-icon calc-form__wheel-icon--small"
+              aria-hidden="true"
+            />
+            <span>19"</span>
+          </label>
+
+          <input
+            type="radio"
+            class="calc-form__wheel-radio-input"
+            name="wheel-size"
+            value="21"
+            id="wheel-size-21"
+          />
+          <label class="calc-form__wheel-option surface1" for="wheel-size-21">
+            <img src="../images/icon-wheel.svg" class="calc-form__wheel-icon" aria-hidden="true" />
+            <span>21"</span>
+          </label>
+        </fieldset>
+      </div>
+    </form>
+  </div>
+</section>
