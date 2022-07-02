@@ -3,7 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-block: 1.75rem;
+  padding-block: 1.5rem;
+  padding-block: clamp(1rem, 3vw, 1.75rem);
 }
 
 .nav {
@@ -16,10 +17,10 @@
   top: 0;
   left: 0;
   right: 0;
-  margin: 0;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding-block: 2rem;
   justify-content: space-between;
   font-family: var(--font-family-brand);
   font-size: 1.25rem;

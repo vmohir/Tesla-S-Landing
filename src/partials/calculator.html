@@ -2,45 +2,15 @@
   <h1 class="calc__title">Range per Charge</h1>
 
   <div class="calc__car">
-    <div class="car">
-      <picture>
-        <source media="(max-width: 700px)" srcset="../images/car-base.png" />
-        <source media="(min-width: 701px)" srcset="../images/car-base@2x.png" />
-        <img
-          class="car__image"
-          src="../images/car-base@2x.png"
-          alt="Tesla car kilometer calculator"
-        />
-      </picture>
-      <picture>
-        <source media="(max-width: 700px)" srcset="../images/car-wheel.png" />
-        <source media="(min-width: 701px)" srcset="../images/car-wheel@2x.png" />
-        <img
-          class="car__wheel car__wheel--right"
-          src="../images/car-wheel@2x.png"
-          aria-hidden="true"
-          alt=""
-        />
-      </picture>
-      <picture>
-        <source media="(max-width: 700px)" srcset="../images/car-wheel.png" />
-        <source media="(min-width: 701px)" srcset="../images/car-wheel@2x.png" />
-        <img
-          class="car__wheel car__wheel--left"
-          src="../images/car-wheel@2x.png"
-          aria-hidden="true"
-          alt=""
-        />
-      </picture>
-    </div>
+    <include src="./car-image.html"></include>
   </div>
 
   <div class="calc__car-kilometers">
     <div class="car-km">
       <div class="car-km__brand">
         <picture>
-          <source media="(max-width: 700px)" srcset="../images/100d.png" />
-          <source media="(min-width: 701px)" srcset="../images/100d@2x.png" />
+          <source media="(max-width: 500px)" srcset="../images/100d.png" />
+          <source media="(min-width: 501px)" srcset="../images/100d@2x.png" />
           <img class="car-km__logo" src="../images/100d@2x.png" aria-hidden="true" alt="" />
         </picture>
         <div class="car-km__indicator">
@@ -49,8 +19,8 @@
       </div>
       <div class="car-km__brand">
         <picture>
-          <source media="(max-width: 700px)" srcset="../images/p100d.png" />
-          <source media="(min-width: 701px)" srcset="../images/p100d@2x.png" />
+          <source media="(max-width: 500px)" srcset="../images/p100d.png" />
+          <source media="(min-width: 501px)" srcset="../images/p100d@2x.png" />
           <img class="car-km__logo" src="../images/p100d@2x.png" aria-hidden="true" alt="" />
         </picture>
         <div class="car-km__indicator">
@@ -91,6 +61,7 @@
               max="140"
               value="70"
               id="car-speed"
+              name="kmh"
               readonly
             />
             <span class="number-input__suffix">KMH</span>
@@ -127,12 +98,13 @@
               max="40"
               value="20"
               id="outside-temperature"
+              name="temp"
               readonly
             />
             <span class="number-input__suffix number-input__suffix--degree">°</span>
           </label>
 
-          <input type="checkbox" id="ac-checkbox" class="calc-form__ac-input" />
+          <input type="checkbox" id="ac-checkbox" class="calc-form__ac-input" name="ac" />
           <label class="calc-form__ac-control" for="ac-checkbox" data-ac-mode="cool">
             <span class="calc-form__ac-label"></span>
             <icon
@@ -158,7 +130,7 @@
           <input
             type="radio"
             class="calc-form__wheel-radio-input"
-            name="wheel-size"
+            name="wheelsize"
             value="19"
             id="wheel-size-19"
             checked
@@ -167,7 +139,7 @@
             <icon
               src="../images/icon-wheel.svg"
               width="80px"
-              class="calc-form__wheel-icon calc-form__wheel-icon&#45;&#45;small"
+              class="calc-form__wheel-icon calc-form__wheel-icon--small"
               aria-hidden="true"
             ></icon>
             <span>19"</span>
@@ -176,7 +148,7 @@
           <input
             type="radio"
             class="calc-form__wheel-radio-input"
-            name="wheel-size"
+            name="wheelsize"
             value="21"
             id="wheel-size-21"
           />

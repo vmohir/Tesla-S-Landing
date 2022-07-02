@@ -4,13 +4,14 @@ const metric100D = require('./src/data/metric-100D.json');
 const metricP100D = require('./src/data/metric-P100D.json');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const posthtml = require('posthtml');
+const postHtml = require('posthtml');
 const postHtmlInlineSvg = require('posthtml-inline-svg');
+const postHtmlInclude = require('posthtml-include');
 
 module.exports = {
   // context: path.resolve(__dirname, 'src'),
   entry: {
-    index: { import: './src/index.js' },
+    index: { import: './src/index.ts' },
     styles: { import: './src/styles/landing.scss' },
   },
   output: {
@@ -33,48 +34,54 @@ module.exports = {
     rules: [
       {
         test: /\.html$/,
-        oneOf: [
-          { resourceQuery: /inline/, type: 'asset/source' },
-          {
-            use: {
-              loader: 'html-loader',
-              options: {
-                esModule: false,
-                preprocessor: async (content, loaderContext) => {
-                  console.log('#ee loaderContext', loaderContext.context);
-                  try {
-                    return (
-                      await posthtml(
-                        postHtmlInlineSvg({ cwd: loaderContext.context, tag: 'icon', attr: 'src' }),
-                      ).process(content)
-                    ).html;
-                  } catch (error) {
-                    loaderContext.emitError(error);
-
-                    return content;
-                  }
-                },
-              },
+        use: {
+          loader: 'html-loader',
+          options: {
+            esModule: false,
+            preprocessor: async (content, loaderContext) => {
+              try {
+                return (
+                  await postHtml([
+                    postHtmlInclude({ root: loaderContext.context }),
+                    postHtmlInlineSvg({ cwd: loaderContext.context, tag: 'icon', attr: 'src' }),
+                  ]).process(content)
+                ).html;
+              } catch (error) {
+                loaderContext.emitError(error);
+                return content;
+              }
             },
           },
-        ],
+        },
+      },
+      {
+        test: /\.ts(x)?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
-        test: /\.(png|ttf)$/,
-        type: 'asset/resource',
-        generator: {
-          filename: 'assets/[name][hash:6][ext]',
-        },
-      },
-      {
-        test: /\.(svg)$/,
-        type: 'asset/inline',
+        test: /\.(png|ttf|svg|json)$/,
+        oneOf: [
+          {
+            resourceQuery: /inline/,
+            type: 'asset/inline',
+          },
+          {
+            type: 'asset/resource',
+            generator: {
+              filename: 'assets/[name][hash:6][ext]',
+            },
+          },
+        ],
       },
     ],
+  },
+  stats: {
+    errorDetails: true,
   },
   plugins: [
     new HtmlWebpackPlugin({

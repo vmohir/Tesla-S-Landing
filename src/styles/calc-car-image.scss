@@ -1,3 +1,4 @@
+@use 'sass:math';
 .car {
   position: relative;
 }
@@ -9,7 +10,7 @@
 .car__wheel {
   position: absolute;
   bottom: 14%;
-  width: (133 / 1400) * 100%;
+  width: math.div(133, 1400) * 100%;
   animation: car-wheel-rotate 1s linear infinite;
 }
 .car__wheel--right {

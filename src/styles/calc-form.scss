@@ -8,6 +8,7 @@
 .calc__title {
   text-align: center;
   font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
 }
 .calc__car {
   display: flex;
@@ -17,7 +18,7 @@
 
 .calc__form {
   font-family: var(--font-family-brand);
-  padding: 3rem 0;
+  padding: 2rem 0;
 }
 
 .calc-form {
@@ -28,6 +29,7 @@
 .calc-form__group {
   padding: 0 2rem;
   height: 140px;
+  margin: 1rem 0;
   &:not(:last-child) {
     border-right: 1px solid var(--surface3);
   }
