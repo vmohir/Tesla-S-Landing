@@ -1,0 +1,83 @@
+$ac-control-shadow-borders: 0 0 0 12px var(--surface1), 0 0 0 13px var(--surface2);
+$ac-mode-cool: "[data-ac-mode='cool']";
+$ac-mode-heat: "[data-ac-mode='heat']";
+.calc-form__ac-control {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  width: 105px;
+  height: 105px;
+  background: #fff;
+  box-shadow: 0 0.8px 0.9px rgba(0, 0, 0, 0.025), 0 2.1px 2.2px rgba(0, 0, 0, 0.035),
+    0 4.3px 4.4px rgba(0, 0, 0, 0.045), 0 8.8px 9.1px rgba(0, 0, 0, 0.055),
+    0 24px 25px rgba(0, 0, 0, 0.08), $ac-control-shadow-borders;
+  font-size: 0.75rem;
+  cursor: pointer;
+  margin-left: 2rem;
+  position: relative;
+  top: -24px;
+  color: var(--surface4);
+  transition: all 0.2s ease;
+  &#{$ac-mode-cool} .calc-form__ac-icon--heat {
+    display: none;
+  }
+  &#{$ac-mode-heat} .calc-form__ac-icon--cool {
+    display: none;
+  }
+}
+.calc-form__ac-label {
+  &:after {
+    #{$ac-mode-cool} & {
+      content: 'AC OFF';
+    }
+    #{$ac-mode-heat} & {
+      content: 'HEAT OFF';
+    }
+  }
+}
+.calc-form__ac-input {
+  appearance: none;
+  margin: 0;
+  &:checked + .calc-form__ac-control {
+    box-shadow: 0 0.3px 0.5px rgba(0, 0, 0, 0.025), 0 0.7px 1.4px rgba(0, 0, 0, 0.035),
+      0 1.4px 2.8px rgba(0, 0, 0, 0.045), 0 2.9px 5.8px rgba(0, 0, 0, 0.055),
+      0 8px 16px rgba(0, 0, 0, 0.08), $ac-control-shadow-borders;
+    color: #ffffff;
+    &#{$ac-mode-cool} {
+      background: var(--ac-cool);
+      .calc-form__ac-label {
+        &:after {
+          content: 'AC ON';
+        }
+      }
+    }
+    &#{$ac-mode-heat} {
+      background: var(--ac-heat);
+      .calc-form__ac-label {
+        &:after {
+          content: 'HEAT ON';
+        }
+      }
+    }
+    .calc-form__ac-icon--cool {
+      animation: ac-cool-on 2s infinite ease-in-out;
+    }
+  }
+}
+
+@keyframes ac-cool-on {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.calc-form__ac-icon {
+  width: 40px;
+  height: 40px;
+  margin-top: 8px;
+}

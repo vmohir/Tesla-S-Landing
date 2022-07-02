@@ -1,0 +1,72 @@
+@use 'calc-mixins';
+
+.number-input {
+  position: relative;
+  display: flex;
+  @include calc-mixins.calc-form-control-box;
+  padding-right: 6rem;
+  justify-content: center;
+}
+
+.number-input__spin-wrapper {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  display: flex;
+  flex-direction: column;
+  bottom: 1rem;
+  &:after {
+    height: 2px;
+    width: 100%;
+    background: var(--surface3);
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+  }
+}
+.number-input__spin {
+  width: 40px;
+  flex: 0 0 50%;
+  cursor: pointer;
+  border: none;
+  background: transparent no-repeat center;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+  opacity: 0.9;
+  &:hover {
+    opacity: 1;
+    filter: drop-shadow(0px 0px 3px var(--brand));
+  }
+}
+
+.number-input__spin--up {
+  background-image: url('../images/icon-thin-chevron-up.svg');
+}
+.number-input__spin--down {
+  background-image: url('../images/icon-thin-chevron-down.svg');
+}
+.number-input__input {
+  //visibility: hidden;
+  font-size: 2.5rem;
+  //  @include calc-form-control-box;
+  background: transparent;
+  border: none;
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+  width: 80px;
+  text-align: right;
+  padding-right: 0.5rem;
+}
+
+.number-input__suffix {
+  align-self: center;
+  font-size: 1.25rem;
+}
+
+.number-input__suffix--degree {
+  align-self: flex-start;
+  margin-left: -6px;
+  font-weight: bold;
+}

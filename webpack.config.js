@@ -1,10 +1,11 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const metric100D = require('./src/data/metric-100D.json');
 const metricP100D = require('./src/data/metric-P100D.json');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const posthtml = require('posthtml');
+const postHtmlInlineSvg = require('posthtml-inline-svg');
 
 module.exports = {
   // context: path.resolve(__dirname, 'src'),
@@ -32,28 +33,46 @@ module.exports = {
     rules: [
       {
         test: /\.html$/,
-        use: [{ loader: 'html-loader', options: { esModule: false } }],
+        oneOf: [
+          { resourceQuery: /inline/, type: 'asset/source' },
+          {
+            use: {
+              loader: 'html-loader',
+              options: {
+                esModule: false,
+                preprocessor: async (content, loaderContext) => {
+                  console.log('#ee loaderContext', loaderContext.context);
+                  try {
+                    return (
+                      await posthtml(
+                        postHtmlInlineSvg({ cwd: loaderContext.context, tag: 'icon', attr: 'src' }),
+                      ).process(content)
+                    ).html;
+                  } catch (error) {
+                    loaderContext.emitError(error);
+
+                    return content;
+                  }
+                },
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
-        test: /\.(svg|png|ttf)$/,
+        test: /\.(png|ttf)$/,
         type: 'asset/resource',
         generator: {
           filename: 'assets/[name][hash:6][ext]',
         },
-        // use: [
-        //   {
-        //     loader: 'url-loader',
-        //     options: {
-        //       limit: 10 * 1024,
-        //       name: '[name].[hash:6].[ext]',
-        //       esModule: false,
-        //     },
-        //   },
-        // ],
+      },
+      {
+        test: /\.(svg)$/,
+        type: 'asset/inline',
       },
     ],
   },

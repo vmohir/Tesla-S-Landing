@@ -1,17 +1,19 @@
 // https://web.dev/building-a-color-scheme/
 
 :root {
-  --brand-hue: 200;
+  --brand-hue: 207;
   --brand-saturation: 100%;
   --brand-lightness: 50%;
+  //color: hsl(227, 21%, 77%);
+  //color: hsl(223, 30%, 95%);
 
   --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
-  --text1-light: hsl(var(--brand-hue) var(--brand-saturation) 10%);
-  --text2-light: hsl(var(--brand-hue) 30% 30%);
-  --surface1-light: hsl(var(--brand-hue) 25% 90%);
-  --surface2-light: hsl(var(--brand-hue) 20% 99%);
-  --surface3-light: hsl(var(--brand-hue) 20% 92%);
-  --surface4-light: hsl(var(--brand-hue) 20% 85%);
+  --text1-light: hsl(var(--brand-hue) var(--brand-saturation) 15%);
+  --text2-light: hsl(var(--brand-hue) 30% 45%);
+  --surface1-light: hsl(var(--brand-hue) 30% 95%);
+  --surface2-light: hsl(var(--brand-hue) 30% 90%);
+  --surface3-light: hsl(var(--brand-hue) 30% 85%);
+  --surface4-light: hsl(var(--brand-hue) 30% 75%);
   --surface-shadow-light: var(--brand-hue) 10% calc(var(--brand-lightness) / 5);
   --shadow-strength-light: 0.02;
 
@@ -87,4 +89,9 @@
 .surface4 {
   background-color: var(--surface4);
   color: var(--text1);
+}
+
+:root {
+  --ac-cool: hsl(207 100% 40%);
+  --ac-heat: hsl(0, 100%, 40%);
 }

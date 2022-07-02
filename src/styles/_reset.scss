@@ -10,6 +10,7 @@ html {
 }
 body {
   margin: 0;
+  color: var(--text1);
 }
 
 h1,
@@ -25,6 +26,11 @@ h6 {
 
 p {
   font-family: var(--font-family-text);
+  line-height: 1.4;
+}
+
+input {
+  color: var(--text1);
 }
 
 fieldset {
@@ -37,10 +43,10 @@ legend {
   margin: 0;
   border: none;
 }
-// input[type='number'] {
-//   appearance: textfield;
-//   &::-webkit-outer-spin-button,
-//   &::-webkit-inner-spin-button {
-//     -webkit-appearance: none;
-//   }
-// }
+input[type='number'] {
+  appearance: textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}

@@ -1,0 +1,29 @@
+.car {
+  position: relative;
+}
+.car__image {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+.car__wheel {
+  position: absolute;
+  bottom: 14%;
+  width: (133 / 1400) * 100%;
+  animation: car-wheel-rotate 1s linear infinite;
+}
+.car__wheel--right {
+  right: 26.5%;
+}
+.car__wheel--left {
+  left: 24.75%;
+}
+
+@keyframes car-wheel-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}

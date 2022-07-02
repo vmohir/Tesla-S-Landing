@@ -1,0 +1,29 @@
+.calc__car-kilometers {
+  margin-top: 1rem;
+}
+.car-km {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.car-km__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.car-km__indicator {
+  font-family: var(--font-family-brand);
+  margin-top: 1rem;
+  color: var(--brand);
+}
+.car-km__value {
+  font-size: 3.5rem;
+}
+.car-km__unit {
+  font-size: 1.25rem;
+  vertical-align: 1.6rem;
+  margin-left: 0.25rem;
+}
