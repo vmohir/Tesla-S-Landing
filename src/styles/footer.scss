@@ -1,0 +1,32 @@
+.footer {
+  --footer-bg: #000000;
+  background: var(--footer-bg);
+  color: #ffffff;
+  padding-block: 4rem;
+  font-size: 0.75rem;
+  margin-top: 5rem;
+}
+.footer__col-title {
+  font-size: 0.65rem;
+  margin-bottom: 1.75rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: var(--font-family-brand);
+}
+.footer__links-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer__list-item {
+  padding: 0;
+  margin-bottom: 0.75rem;
+}
+.footer__item-link {
+  text-decoration: none;
+  color: #eeeeee;
+  transition: color 0.2s ease;
+  &:hover {
+    color: #ffffff;
+  }
+}

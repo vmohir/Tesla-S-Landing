@@ -12,7 +12,7 @@ module.exports = {
   // context: path.resolve(__dirname, 'src'),
   entry: {
     index: { import: './src/index.ts' },
-    styles: { import: './src/styles/landing.scss' },
+    styles: { import: './src/styles/index.scss' },
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
