@@ -74,6 +74,9 @@ $ac-mode-heat: "[data-ac-mode='heat']";
       animation: ac-cool-on 2s infinite ease-in-out;
     }
   }
+  &:focus + .calc-form__ac-control {
+    outline: 1px solid var(--brand);
+  }
 }
 
 @keyframes ac-cool-on {

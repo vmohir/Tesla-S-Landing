@@ -42,6 +42,13 @@ class NumberInputComponent {
       inputElm.stepDown();
       this.handleValueChange();
     });
+
+    // Only allow arrow up and down. Prevent entering numbers directly
+    inputElm.addEventListener('keydown', (e) => {
+      if (/[\de]/.exec(e.key) && !e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+        e.preventDefault();
+      }
+    });
   }
 
   private handleValueChange() {

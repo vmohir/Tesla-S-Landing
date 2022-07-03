@@ -38,7 +38,6 @@
           <label
             class="number-input surface1"
             aria-label="Speed in kilometers per hour"
-            tabindex="0"
             for="car-speed"
           >
             <span class="number-input__spin-wrapper">
@@ -57,6 +56,7 @@
             </span>
             <input
               type="number"
+              inputmode="number"
               class="number-input__input"
               data-js-number-input
               step="10"
@@ -65,7 +65,6 @@
               value="70"
               id="car-speed"
               name="kmh"
-              readonly
             />
             <span class="number-input__suffix">KMH</span>
           </label>
@@ -78,7 +77,6 @@
           <label
             class="number-input surface1"
             aria-label="Temperature value in centigrade"
-            tabindex="0"
             for="outside-temperature"
           >
             <span class="number-input__spin-wrapper">
@@ -97,6 +95,7 @@
             </span>
             <input
               type="number"
+              inputmode="number"
               class="number-input__input"
               data-js-number-input
               step="10"
@@ -105,7 +104,6 @@
               value="20"
               id="outside-temperature"
               name="temp"
-              readonly
             />
             <span class="number-input__suffix number-input__suffix--degree">°</span>
           </label>

@@ -62,6 +62,9 @@
   &:checked + .calc-form__wheel-option {
     border-color: var(--brand);
   }
+  &:focus + .calc-form__wheel-option {
+    outline: 1px solid var(--brand);
+  }
 }
 .calc-form__wheel-icon {
   margin-right: 1rem;

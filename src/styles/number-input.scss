@@ -6,6 +6,12 @@
   @include calc-mixins.calc-form-control-box;
   padding-right: 6rem;
   justify-content: center;
+  &:focus-within {
+    outline: 1px solid var(--brand);
+  }
+  ::selection {
+    background-color: var(--surface1);
+  }
 }
 
 .number-input__spin-wrapper {
@@ -52,12 +58,11 @@
   background-image: url('../images/icon-thin-chevron-down.svg');
 }
 .number-input__input {
-  //visibility: hidden;
   font-size: 2.5rem;
-  //  @include calc-form-control-box;
   background: transparent;
   border: none;
   outline: none;
+  caret-color: transparent;
   &:focus {
     outline: none;
   }
