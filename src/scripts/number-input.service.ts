@@ -45,7 +45,7 @@ class NumberInputComponent {
 
     // Only allow arrow up and down. Prevent entering numbers directly
     inputElm.addEventListener('keydown', (e) => {
-      if (/[\de]/.exec(e.key) && !e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+      if (/^[\de ]$/.exec(e.key) && !e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
         e.preventDefault();
       }
     });
