@@ -5,6 +5,7 @@
   padding-block: 4rem;
   font-size: 0.75rem;
   margin-top: 5rem;
+  border-top: 2px solid var(--brand);
 }
 .footer__col-title {
   font-size: 0.65rem;
@@ -29,4 +30,18 @@
   &:hover {
     color: #ffffff;
   }
+}
+
+.dark-mode {
+  margin-top: 1rem;
+}
+.dark-mode__toggle {
+  display: flex;
+  align-items: center;
+}
+.dark-mode__checkbox {
+  accent-color: var(--brand);
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
 }
