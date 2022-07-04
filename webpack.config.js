@@ -11,8 +11,8 @@ const postHtmlInclude = require('posthtml-include');
 module.exports = {
   // context: path.resolve(__dirname, 'src'),
   entry: {
-    index: { import: './src/index.ts' },
-    styles: { import: './src/styles/index.scss' },
+    index: { import: path.resolve(__dirname, './src/index.ts') },
+    styles: { import: path.resolve(__dirname, './src/styles/index.scss') },
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -64,11 +64,14 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
-        test: /\.(png|ttf|svg|json)$/,
+        test: /\.(png|ttf|svg|json|webmanifest|ico)$/,
         oneOf: [
           {
-            resourceQuery: /inline/,
-            type: 'asset/inline',
+            resourceQuery: /raw/,
+            type: 'asset/resource',
+            generator: {
+              filename: '[name][ext]',
+            },
           },
           {
             type: 'asset/resource',

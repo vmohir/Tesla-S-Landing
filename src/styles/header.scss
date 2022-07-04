@@ -60,3 +60,17 @@
     }
   }
 }
+
+.skip-to-main-link {
+  position: absolute;
+  transform: translateY(-100%);
+  top: 0;
+  left: 0;
+  background: #ffffff;
+  padding: 0.5rem;
+  color: var(--brand);
+  transition: transform 0.3s;
+  &:focus {
+    transform: translateY(0%);
+  }
+}

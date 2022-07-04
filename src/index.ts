@@ -7,4 +7,5 @@ DomUtils.docReady().then(() => {
   const app = new App(car100DId, carP100DId, formId);
   app.setupApp();
   new DarkModeToggle();
+  console.log('wefew');
 });
