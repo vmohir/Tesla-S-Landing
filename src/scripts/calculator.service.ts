@@ -24,7 +24,7 @@ export class CalculatorService {
     this.carsData = carsData;
 
     this.updateCarKilometers();
-    this.formElm.addEventListener('change', (e) => {
+    this.formElm.addEventListener('change', () => {
       this.updateCarKilometers();
     });
   }

@@ -10,7 +10,8 @@
     "build:dev": "webpack --mode development",
     "test": "jest",
     "prettier:write": "prettier --write \"./src/**/*.{html,scss,js,json}\"",
-    "stylelint": "stylelint \"./src/styles/**/*\""
+    "stylelint": "stylelint \"./src/styles/**/*\"",
+    "eslint": "eslint \"./src/scripts/**/*\""
   },
   "keywords": [
     "VanillaJS",
@@ -19,9 +20,12 @@
   "author": "Vahid Mohammadi",
   "license": "ISC",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.30.4",
+    "@typescript-eslint/parser": "^5.30.4",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
     "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
     "html-loader": "^3.1.2",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
