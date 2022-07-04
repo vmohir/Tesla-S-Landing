@@ -7,5 +7,7 @@ module.exports = {
     ],
     'block-no-empty': [true, { severity: 'error' }],
     'comment-no-empty': [true, { severity: 'error' }],
+    'no-duplicate-selectors': [true, { severity: 'warning' }],
+    'color-function-notation': 'modern',
   },
 };

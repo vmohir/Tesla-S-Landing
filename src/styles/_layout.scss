@@ -5,13 +5,15 @@
 }
 
 .row {
-  display: flex;
-  flex-wrap: wrap;
   --gap-y: 1rem;
   --gap-x: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
   margin-top: calc(-1 * var(--gap-y));
   margin-right: calc(-0.5 * var(--gap-x));
   margin-left: calc(-0.5 * var(--gap-x));
+
   .col {
     flex: 1 0 0px;
     padding-right: calc(var(--gap-x) * 0.5);
@@ -20,6 +22,7 @@
     width: 100%;
     max-width: 100%;
   }
+
   .col--2x {
     flex-grow: 2;
   }

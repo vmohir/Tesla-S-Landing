@@ -4,11 +4,14 @@
   position: relative;
   display: flex;
   @include calc-mixins.calc-form-control-box;
+
   padding-right: 6rem;
   justify-content: center;
+
   &:focus-within {
     outline: 1px solid var(--brand);
   }
+
   ::selection {
     background-color: var(--surface1);
   }
@@ -21,7 +24,8 @@
   display: flex;
   flex-direction: column;
   bottom: 1rem;
-  &:after {
+
+  &::after {
     height: 2px;
     width: 100%;
     background: var(--surface3);
@@ -31,6 +35,7 @@
     margin-top: -1px;
   }
 }
+
 .number-input__spin {
   width: 40px;
   flex: 0 0 50%;
@@ -39,10 +44,12 @@
   background: transparent no-repeat center;
   transition: opacity 0.2s ease, filter 0.2s ease;
   opacity: 0.9;
+
   &:hover {
     opacity: 1;
-    filter: drop-shadow(0px 0px 3px var(--brand));
+    filter: drop-shadow(0 0 3px var(--brand));
   }
+
   &:disabled {
     filter: grayscale(1);
     opacity: 0.2;
@@ -54,18 +61,22 @@
 .number-input__spin--up {
   background-image: url('../images/icon-thin-chevron-up.svg');
 }
+
 .number-input__spin--down {
   background-image: url('../images/icon-thin-chevron-down.svg');
 }
+
 .number-input__input {
   font-size: 2.5rem;
   background: transparent;
   border: none;
   outline: none;
   caret-color: transparent;
+
   &:focus {
     outline: none;
   }
+
   width: 80px;
   text-align: right;
   padding-right: 0.5rem;

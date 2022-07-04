@@ -5,11 +5,13 @@
 .calc {
   padding-top: 5rem;
 }
+
 .calc__title {
   text-align: center;
   font-size: 3rem;
   font-size: clamp(2rem, 5vw, 3rem);
 }
+
 .calc__car {
   display: flex;
   align-items: center;
@@ -26,10 +28,12 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .calc-form__group {
   padding: 0 2rem;
   height: 140px;
   margin: 1rem 0;
+
   &:not(:last-child) {
     border-right: 1px solid var(--surface3);
   }
@@ -53,22 +57,28 @@
   align-items: center;
   justify-content: center;
   @include calc-mixins.calc-form-control-box;
+
   font-size: 2rem;
   cursor: pointer;
 }
+
 .calc-form__wheel-radio-input {
   appearance: none;
   margin: 0;
+
   &:checked + .calc-form__wheel-option {
     border-color: var(--brand);
   }
+
   &:focus + .calc-form__wheel-option {
     outline: 1px solid var(--brand);
   }
 }
+
 .calc-form__wheel-icon {
   margin-right: 1rem;
 }
+
 .calc-form__wheel-icon--small {
   transform: scale(0.8);
 }

@@ -5,9 +5,6 @@
   --brand-hue: 207;
   --brand-saturation: 100%;
   --brand-lightness: 50%;
-  //color: hsl(227, 21%, 77%);
-  //color: hsl(223, 30%, 95%);
-
   --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
   --text1-light: hsl(var(--brand-hue) var(--brand-saturation) 15%);
   --text2-light: hsl(var(--brand-hue) 30% 45%);
@@ -15,8 +12,7 @@
   --surface2-light: hsl(var(--brand-hue) 30% 90%);
   --surface3-light: hsl(var(--brand-hue) 30% 85%);
   --surface4-light: hsl(var(--brand-hue) 30% 75%);
-  --body-bg-light: #ffffff;
-
+  --body-bg-light: #fff;
   --brand-dark: hsl(
     var(--brand-hue) calc(var(--brand-saturation) / 1.25) calc(var(--brand-lightness) / 1.1)
   );
@@ -29,7 +25,7 @@
   --body-bg-dark: hsl(var(--brand-hue) 5% 5%);
 }
 
-@mixin setupLightColors {
+@mixin setup-light-colors {
   --brand: var(--brand-light);
   --text1: var(--text1-light);
   --text2: var(--text2-light);
@@ -39,7 +35,7 @@
   --surface4: var(--surface4-light);
   --body-bg: var(--body-bg-light);
 }
-@mixin setupDarkColors {
+@mixin setup-dark-colors {
   --brand: var(--brand-dark);
   --text1: var(--text1-dark);
   --text2: var(--text2-dark);
@@ -51,10 +47,11 @@
 }
 
 :root {
-  @include setupLightColors;
+  @include setup-light-colors;
 }
+
 [color-scheme='dark'] {
-  @include setupDarkColors;
+  @include setup-dark-colors;
 }
 
 .surface1 {
@@ -78,6 +75,6 @@
 }
 
 :root {
-  --ac-cool: hsl(207 100% 40%);
-  --ac-heat: hsl(0, 100%, 40%);
+  --ac-cool: hsl(207deg 100% 40%);
+  --ac-heat: hsl(0deg 100% 40%);
 }

@@ -3,6 +3,7 @@
 * {
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -11,6 +12,7 @@ html {
     font-size: 14px;
   }
 }
+
 body {
   margin: 0;
   color: var(--text1);
@@ -42,15 +44,18 @@ fieldset {
   margin: 0;
   border: none;
 }
+
 legend {
   padding: 0;
   margin: 0;
   border: none;
 }
+
 input[type='number'] {
   appearance: textfield;
+
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+    appearance: none;
   }
 }
