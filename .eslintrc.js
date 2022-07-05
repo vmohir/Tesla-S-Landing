@@ -6,4 +6,7 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   extends: ['plugin:@typescript-eslint/recommended', 'prettier'],
+  rules: {
+    '@typescript-eslint/no-var-requires': 0,
+  },
 };

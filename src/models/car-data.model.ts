@@ -1,11 +1,17 @@
-export type CarBrands = '100D' | 'P100D';
-export interface CarData {
+export interface CarDataResponse {
   temp: number;
   ac: 'on' | 'off';
   wheelsize: 19 | 21;
   hwy: { kmh: number; kilometers: number }[];
 }
 
-export interface EnrichedCarData {
+export interface CarConfig {
+  dataUrl: string;
+  domElm?: HTMLElement | null;
+  id: string;
+  data?: CarKilometers;
+}
+
+export interface CarKilometers {
   [p: string]: number;
 }

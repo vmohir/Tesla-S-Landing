@@ -1,0 +1,44 @@
+@use 'calc-mixins';
+
+$active-wheel-rotation-degree: 45deg;
+
+.calc-form__wheel-icon {
+  margin-right: 1rem;
+  transition: transform 0.4s ease;
+  transform: rotate(var(--rotate-transform, 0deg));
+}
+
+.calc-form__wheel-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  @include calc-mixins.calc-form-control-box;
+
+  font-size: 2rem;
+  cursor: pointer;
+
+  &:hover {
+    .calc-form__wheel-icon {
+      --rotate-transform: #{$active-wheel-rotation-degree};
+    }
+  }
+}
+
+.calc-form__wheel-radio-input {
+  appearance: none;
+  margin: 0;
+
+  &:checked + .calc-form__wheel-option {
+    --rotate-transform: #{$active-wheel-rotation-degree};
+
+    border-color: var(--brand);
+  }
+
+  &:focus + .calc-form__wheel-option {
+    outline: 1px solid var(--brand);
+  }
+}
+
+.calc-form__wheel-icon--small {
+  transform: scale(0.8) rotate(var(--rotate-transform, 0deg));
+}

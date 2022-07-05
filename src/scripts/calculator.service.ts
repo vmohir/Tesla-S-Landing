@@ -1,17 +1,10 @@
 import { CalcFormData } from '../models/calculator.model';
-import { CarDataService } from './car-data.service';
-import { EnrichedCarData } from '../models/car-data.model';
 
 export class CalculatorService {
-  private carsData: EnrichedCarData[] = [];
-  constructor(
-    private formElm: HTMLFormElement,
-    private car100DValueElm: HTMLElement,
-    private carP100DValueElm: HTMLElement,
-  ) {}
+  constructor(private formElm: HTMLFormElement) {}
 
-  getFormData(form: HTMLFormElement): CalcFormData {
-    const formData = new FormData(form);
+  getFormData(): CalcFormData {
+    const formData = new FormData(this.formElm);
     return {
       wheelSize: parseInt(formData.get('wheelsize') as string, 10) as CalcFormData['wheelSize'],
       ac: formData.get('ac') === 'on' ? 'on' : 'off',
@@ -20,28 +13,15 @@ export class CalculatorService {
     };
   }
 
-  setupFormHandler(carsData: EnrichedCarData[]) {
-    this.carsData = carsData;
-
-    this.updateCarKilometers();
+  setupFormHandler({ onFormDataChange }: { onFormDataChange: (formData: CalcFormData) => void }) {
+    onFormDataChange(this.getFormData());
     this.formElm.addEventListener('change', () => {
-      this.updateCarKilometers();
+      onFormDataChange(this.getFormData());
     });
-  }
 
-  updateCarKilometers() {
-    const formData = this.getFormData(this.formElm);
-    console.log('#ee formData', formData);
-    const result = this.carsData.map((car) => {
-      return car[CarDataService.getCarDataItemKey(formData)];
-    });
-    console.log('#ee result', result);
-
-    if (!this.car100DValueElm || !this.carP100DValueElm || result.length !== 2) {
-      return; // todo handle it
-    }
-
-    this.car100DValueElm.innerText = result[0].toString();
-    this.carP100DValueElm.innerText = result[1].toString();
+    // Seems to be the only solution to detect js modifications according to this SO answer: https://stackoverflow.com/a/1949416/1889607
+    setInterval(() => {
+      onFormDataChange(this.getFormData());
+    }, 100);
   }
 }

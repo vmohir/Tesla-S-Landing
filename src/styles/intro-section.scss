@@ -23,7 +23,15 @@
   align-items: center;
   justify-content: center;
   border-radius: 50px;
-  border: 2px solid #000;
+  border: 2px solid var(--text1);
   width: 75px;
   height: 75px;
+  color: var(--text1);
+  &:hover {
+    color: var(--text2);
+  }
+}
+
+.scroll-to-calculator__icon {
+  transition: color 0.2s ease;
 }
