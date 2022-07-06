@@ -12,12 +12,14 @@
   z-index: 1;
 }
 
-.nav__menu {
+.nav__inner {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  margin: 0 auto;
+}
+
+.nav__menu {
   display: flex;
   align-items: center;
   padding-block: 2rem;
