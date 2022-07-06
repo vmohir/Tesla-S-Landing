@@ -26,6 +26,11 @@ $active-wheel-rotation-degree: 45deg;
 
 .calc-form__wheel-radio-input {
   appearance: none;
+
+  &::-ms-check {
+    display: none;
+  }
+
   margin: 0;
 
   &:checked + .calc-form__wheel-option {

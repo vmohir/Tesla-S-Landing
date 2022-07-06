@@ -1,4 +1,4 @@
-@use 'ac-heat-toggle';
+@use 'src/styles/ac-toggle';
 @use 'number-input';
 @use 'wheel-size';
 
@@ -47,7 +47,7 @@
   color: var(--text2);
 }
 
-.calc-form__temperature-fieldset {
+.calc-form__temperature {
   display: flex;
   flex-wrap: nowrap;
 }

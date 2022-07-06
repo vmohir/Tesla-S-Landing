@@ -58,6 +58,11 @@ $ac-mode-heat: "[data-ac-mode='heat']";
 
 .calc-form__ac-input {
   appearance: none;
+
+  &::-ms-check {
+    display: none;
+  }
+
   margin: 0;
 
   &:checked + .calc-form__ac-control {

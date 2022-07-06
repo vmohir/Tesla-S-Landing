@@ -7,11 +7,11 @@ export class NumberInputComponent {
     this.handleDisablingSpinElements();
 
     spinUpElm.addEventListener('click', () => {
-      inputElm.stepUp();
+      this.stepUp();
       this.handleValueChange();
     });
     spinDownElm.addEventListener('click', () => {
-      inputElm.stepDown();
+      this.stepDown();
       this.handleValueChange();
     });
 
@@ -21,6 +21,26 @@ export class NumberInputComponent {
         e.preventDefault();
       }
     });
+  }
+
+  private stepDown() {
+    try {
+      this.inputElm.stepDown();
+    } catch (_) {
+      // fix old browsers bug: https://stackoverflow.com/questions/22748502/testing-for-stepup-and-stepdown-method-support
+      const step = parseInt(this.inputElm.step, 10);
+      this.inputElm.value = (parseInt(this.inputElm.value, 10) - step).toString();
+    }
+  }
+
+  private stepUp() {
+    try {
+      this.inputElm.stepUp();
+    } catch (_) {
+      // fix old browsers bug: https://stackoverflow.com/questions/22748502/testing-for-stepup-and-stepdown-method-support
+      const step = parseInt(this.inputElm.step, 10);
+      this.inputElm.value = (parseInt(this.inputElm.value, 10) + step).toString();
+    }
   }
 
   private handleValueChange() {

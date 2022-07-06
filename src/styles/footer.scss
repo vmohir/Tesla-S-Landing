@@ -1,6 +1,9 @@
+@use 'dark-mode-toggle';
+
 .footer {
   --footer-bg: #000;
 
+  background: #000;
   background: var(--footer-bg);
   color: #fff;
   padding-block: 4rem;
@@ -36,19 +39,4 @@
   &:hover {
     color: #fff;
   }
-}
-
-.dark-mode {
-  margin-top: 1rem;
-}
-
-.dark-mode__toggle {
-  display: flex;
-  align-items: center;
-}
-
-.dark-mode__checkbox {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
 }

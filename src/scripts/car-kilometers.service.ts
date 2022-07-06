@@ -11,6 +11,7 @@ export class CarKilometersService {
   }
 
   private async enrichCarData(carsData: CarConfig[]) {
+    console.log('#ee carsData', carsData);
     this.carsData = await Promise.all(
       carsData.map(async (c) => ({
         ...c,
@@ -18,6 +19,7 @@ export class CarKilometersService {
         data: await this.getCarData(c),
       })),
     );
+    console.log('#ee this.carsData', this.carsData);
   }
 
   static getCarKilometerKey({ kmh, ac, temp, wheelSize }: CalcFormData) {
@@ -25,10 +27,12 @@ export class CarKilometersService {
   }
 
   private async getCarData(car: CarConfig): Promise<CarKilometers> {
+    console.log('#ee car 29', car);
     try {
       const data = await CarApiService.fetchCarData(car);
       return this.enrichCarResponse(data);
     } catch (e) {
+      console.log('#ee e 34', e);
       throw e;
     }
   }
@@ -54,6 +58,7 @@ export class CarKilometersService {
   }
 
   updateCarKilometer({ domElm, id, data }: CarConfig, formData: CalcFormData) {
+    console.log('#ee domElm, id, data', domElm, id, data, formData);
     if (!domElm) {
       console.warn(`Car with id=${id} doesn't exist on the page`);
       return;
@@ -64,7 +69,9 @@ export class CarKilometersService {
     }
 
     const result = this.calculate(data, formData)?.toString() ?? '-';
+    console.log('#ee result', result, domElm.innerText);
     if (domElm.innerText !== result) {
+      console.log('#ee WTF', result);
       domElm.innerText = result;
     }
   }
