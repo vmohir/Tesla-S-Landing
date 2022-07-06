@@ -26,6 +26,7 @@ export class CarKilometersService {
     console.log('#ee car 29', car);
     try {
       const data = await CarApiService.fetchCarData(car);
+      console.log('#ee data', data);
       return this.enrichCarResponse(data);
     } catch (e) {
       console.log('#ee e 34', e);
