@@ -81,6 +81,19 @@ $ac-mode-heat: "[data-ac-mode='heat']";
     .calc-form__ac-icon--cool {
       animation: ac-cool-on 2s infinite ease-in-out;
     }
+    .calc-form__ac-icon--heat {
+      animation: ac-heat-on 2s infinite alternate linear;
+      transform-origin: center;
+      #p3 {
+        transform-origin: center 132%;
+      }
+      #p1 {
+        transform-origin: center 38%;
+      }
+      #p2 {
+        transform-origin: center 85%;
+      }
+    }
   }
 
   &:focus + .calc-form__ac-control {
@@ -89,12 +102,15 @@ $ac-mode-heat: "[data-ac-mode='heat']";
 }
 
 @keyframes ac-cool-on {
-  from {
-    transform: rotate(0deg);
-  }
-
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+@keyframes ac-heat-on {
+  to {
+    transform: rotate(180deg);
   }
 }
 
