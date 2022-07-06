@@ -1,0 +1,106 @@
+stages:
+  - install
+  - precheck
+  - semantic
+  - pre-build
+  - build
+
+variables:
+  FF_USE_FASTZIP: 'true'
+  ARTIFACT_COMPRESSION_LEVEL: 'slow'
+  CACHE_COMPRESSION_LEVEL: 'slow'
+  GIT_DEPTH: 10
+
+default:
+  image: node:16.10.0
+
+.node_modules_cache: &node_modules_cache
+  key:
+    files:
+      - package-lock.json
+  paths:
+    - node_modules/
+  policy: pull
+
+.npm_global_cache: &npm_global_cache
+  key: npm-global-cache
+  paths:
+    - .npm/
+
+.retry_and_interruptible: &retry_and_interruptible
+  interruptible: true
+  retry:
+    max: 2
+    when:
+      - runner_system_failure
+      - stuck_or_timeout_failure
+
+install-dependencies:
+  stage: install
+  <<: *retry_and_interruptible
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
+    - when: never
+  cache:
+    - <<: *npm_global_cache
+    - <<: *node_modules_cache
+      policy: pull-push
+  allow_failure:
+    exit_codes: 10 # exiting so that it won't reupload the cache
+  script:
+    - npm -v
+    - if [[ -d node_modules ]]; then
+      exit 10;
+      fi;
+      npm install --no-audit --cache .npm;
+
+#lint-mr:
+#  stage: precheck
+#  <<: *retry_and_interruptible
+#  rules:
+#    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
+#    - when: never
+#  needs:
+#    - install-dependencies
+#  cache:
+#    - <<: *node_modules_cache
+#    - key: $CI_COMMIT_REF_SLUG
+#      paths:
+#        - .eslintcache
+#        - .stylelintcache
+#  script:
+#    - npm run prettier:check
+#    - npm run lint
+
+build:
+  stage: build
+  <<: *retry_and_interruptible
+  needs:
+    - install-dependencies
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
+    - when: never
+  cache:
+    - <<: *node_modules_cache
+  artifacts:
+    paths:
+      - dist
+  script:
+    - npm run build
+
+pages:
+  stage: publish-image
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+    - when: never
+  dependencies:
+    - build
+  needs:
+    - build
+  script:
+    - mv dist public
+  artifacts:
+    paths:
+      - public

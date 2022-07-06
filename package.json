@@ -11,7 +11,8 @@
     "test": "jest",
     "prettier:write": "prettier --write \"./src/**/*.{html,scss,js,json}\"",
     "stylelint": "stylelint \"./src/styles/**/*\" --cache",
-    "eslint": "eslint \"./src/scripts/**/*\" --cache"
+    "eslint": "eslint \"./src/scripts/**/*\" --cache",
+    "lint": "npm run eslint && npm run stylelint"
   },
   "keywords": [
     "VanillaJS",
