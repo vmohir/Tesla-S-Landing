@@ -24,7 +24,7 @@ export class CalculatorService {
     // Seems to be the only solution to detect js modifications according to this SO answer: https://stackoverflow.com/a/1949416/1889607
     setInterval(() => {
       this.emitFormData(onFormDataChange);
-    }, 5000);
+    }, 100);
   }
 
   private emitFormData(onFormDataChange: (formData: CalcFormData) => void) {
