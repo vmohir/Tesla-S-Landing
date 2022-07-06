@@ -7,6 +7,7 @@ export class CalculatorService {
 
   getFormData(): CalcFormData {
     const formData = new FormData(this.formElm);
+    console.log('#ee formData', formData);
     return {
       wheelSize: parseInt(formData.get('wheelsize') as string, 10) as CalcFormData['wheelSize'],
       ac: formData.get('ac') === 'on' ? 'on' : 'off',
@@ -16,6 +17,7 @@ export class CalculatorService {
   }
 
   setupFormHandler({ onFormDataChange }: { onFormDataChange: (formData: CalcFormData) => void }) {
+    console.log('#ee onFormDataChange 19', onFormDataChange);
     this.emitFormData(onFormDataChange);
     this.formElm.addEventListener('change', () => {
       this.emitFormData(onFormDataChange);
@@ -28,7 +30,9 @@ export class CalculatorService {
   }
 
   private emitFormData(onFormDataChange: (formData: CalcFormData) => void) {
+    console.log('#ee formData 32', onFormDataChange);
     const newFormData = this.getFormData();
+    console.log('#ee newFormData 34', newFormData, this.latestFormData);
     if (this.latestFormData === JSON.stringify(newFormData)) return;
 
     console.log('#ee fefe');
