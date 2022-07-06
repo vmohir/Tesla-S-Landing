@@ -9,10 +9,12 @@ export class NumberInputComponent {
     spinUpElm.addEventListener('click', () => {
       this.stepUp();
       this.handleValueChange();
+      this.inputElm.focus();
     });
     spinDownElm.addEventListener('click', () => {
       this.stepDown();
       this.handleValueChange();
+      this.inputElm.focus();
     });
 
     // Only allow arrow up and down. Prevent entering numbers directly
@@ -20,6 +22,11 @@ export class NumberInputComponent {
       if (/^[\de ]$/.exec(e.key) && !e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
         e.preventDefault();
       }
+    });
+
+    inputElm.addEventListener('input', (e) => {
+      console.log('#ee e', e);
+      this.handleDisablingSpinElements();
     });
   }
 

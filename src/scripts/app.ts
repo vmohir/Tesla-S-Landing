@@ -14,7 +14,8 @@ export class App {
     this.carDataService = new CarKilometersService();
   }
 
-  setupApp() {
+  async setupApp() {
+    await this.carDataService.enrichCarData();
     this.calculator.setupFormHandler({
       onFormDataChange: (formData) => {
         this.carDataService.updateKilometers(formData);

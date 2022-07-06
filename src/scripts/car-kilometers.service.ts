@@ -6,11 +6,7 @@ import { CarApiService } from './car-api.service';
 export class CarKilometersService {
   private carsData = carsData;
 
-  constructor() {
-    this.enrichCarData(carsData);
-  }
-
-  private async enrichCarData(carsData: CarConfig[]) {
+  async enrichCarData() {
     console.log('#ee carsData', carsData);
     this.carsData = await Promise.all(
       carsData.map(async (c) => ({

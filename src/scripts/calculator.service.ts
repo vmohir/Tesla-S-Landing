@@ -1,6 +1,8 @@
 import { CalcFormData } from '../models/calculator.model';
 
 export class CalculatorService {
+  private latestFormData?: string;
+
   constructor(private formElm: HTMLFormElement) {}
 
   getFormData(): CalcFormData {
@@ -14,14 +16,23 @@ export class CalculatorService {
   }
 
   setupFormHandler({ onFormDataChange }: { onFormDataChange: (formData: CalcFormData) => void }) {
-    onFormDataChange(this.getFormData());
+    this.emitFormData(onFormDataChange);
     this.formElm.addEventListener('change', () => {
-      onFormDataChange(this.getFormData());
+      this.emitFormData(onFormDataChange);
     });
 
     // Seems to be the only solution to detect js modifications according to this SO answer: https://stackoverflow.com/a/1949416/1889607
     setInterval(() => {
-      onFormDataChange(this.getFormData());
-    }, 100);
+      this.emitFormData(onFormDataChange);
+    }, 5000);
+  }
+
+  private emitFormData(onFormDataChange: (formData: CalcFormData) => void) {
+    const newFormData = this.getFormData();
+    if (this.latestFormData === JSON.stringify(newFormData)) return;
+
+    console.log('#ee fefe');
+    this.latestFormData = JSON.stringify(newFormData);
+    onFormDataChange(newFormData);
   }
 }
