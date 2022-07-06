@@ -1,9 +1,8 @@
 stages:
   - install
-  - precheck
-  - semantic
-  - pre-build
+#  - precheck
   - build
+  - publish
 
 variables:
   FF_USE_FASTZIP: 'true'
@@ -91,7 +90,7 @@ build:
     - npm run build
 
 pages:
-  stage: publish-image
+  stage: publish
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
     - when: never
