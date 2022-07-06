@@ -25,7 +25,6 @@ export class NumberInputComponent {
     });
 
     inputElm.addEventListener('input', (e) => {
-      console.log('#ee e', e);
       this.handleDisablingSpinElements();
     });
   }

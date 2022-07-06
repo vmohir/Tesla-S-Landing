@@ -1,26 +1,26 @@
-.hero__image {
-  max-width: 100%;
-  @supports (object-fit: cover) {
-    max-height: calc(90vh - 72px);
-    height: 50vw;
-    width: 100vw;
-    object-fit: cover;
-  }
-}
+//.hero__image {
+//  @supports (object-fit: cover) {
+//    max-height: calc(90vh - 72px);
+//    height: 50vw;
+//    width: 100vw;
+//    object-fit: cover;
+//  }
+//}
 
-@supports not (object-fit: cover) {
-  .hero {
-    height: calc(90vh - 72px);
-    overflow: hidden;
-    position: relative;
+// object-fit and @supports queries aren't supported in IE11. The workaround:
 
-    .hero__image {
-      width: 100%;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 0;
-      right: 0;
-    }
+.hero {
+  height: calc(90vh - 72px);
+  overflow: hidden;
+  position: relative;
+
+  .hero__image {
+    max-width: 100%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
   }
 }
