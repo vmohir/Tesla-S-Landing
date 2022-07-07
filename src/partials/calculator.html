@@ -12,12 +12,14 @@
             <button
               type="button"
               class="number-input__spin number-input__spin--up"
+              aria-label="increase kilometers"
               data-js-spin-up
               tabindex="-1"
             ></button>
             <button
               type="button"
               class="number-input__spin number-input__spin--down"
+              aria-label="decrease kilometers"
               data-js-spin-down
               tabindex="-1"
             ></button>
@@ -52,12 +54,14 @@
               <button
                 type="button"
                 class="number-input__spin number-input__spin--up"
+                aria-label="increase temperature"
                 data-js-spin-up
                 tabindex="-1"
               ></button>
               <button
                 type="button"
                 class="number-input__spin number-input__spin--down"
+                aria-label="decrease temperature"
                 data-js-spin-down
                 tabindex="-1"
               ></button>
@@ -78,7 +82,12 @@
           </label>
 
           <input type="checkbox" id="ac-checkbox" class="calc-form__ac-input" name="ac" />
-          <label class="calc-form__ac-control" for="ac-checkbox" data-ac-mode="cool">
+          <label
+            class="calc-form__ac-control"
+            for="ac-checkbox"
+            data-ac-mode="cool"
+            aria-label="Toggle cool/heat"
+          >
             <span class="calc-form__ac-label"></span>
             <icon
               src="../images/icon-fan.svg"
