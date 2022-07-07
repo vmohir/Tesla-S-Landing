@@ -15,11 +15,12 @@ describe('CalculatorService', () => {
     calculatorService = new CalculatorService(formElm);
   });
 
-  it('should call onFormDataChange callback on form changes', () => {
+  it('should call onFormDataChange callback on form changes', async () => {
     const spy = jest.fn();
     calculatorService.setupFormHandler({ onFormDataChange: spy });
     formElm.dispatchEvent(new Event('change'));
-    expect(spy).toBeCalledTimes(2);
+    // as long as form values aren't changed, the callback will not be called
+    expect(spy).toBeCalledTimes(1);
   });
 
   it('should calculate form data', () => {
