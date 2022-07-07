@@ -4,6 +4,8 @@
 
 This is the desktop version of a landing page of a hypothetical Tesla Model S website.
 
+The project is auto-published to Netlify: https://sendcloud-tesla-landing.netlify.app/
+
 ## Usage
 
 ```bash
