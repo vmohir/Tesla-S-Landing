@@ -1,6 +1,6 @@
 stages:
   - install
-#  - precheck
+  - precheck
   - build
   - publish
 
@@ -54,23 +54,23 @@ install-dependencies:
       fi;
       npm install --no-audit --cache .npm;
 
-#lint-mr:
-#  stage: precheck
-#  <<: *retry_and_interruptible
-#  rules:
-#    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
-#    - when: never
-#  needs:
-#    - install-dependencies
-#  cache:
-#    - <<: *node_modules_cache
-#    - key: $CI_COMMIT_REF_SLUG
-#      paths:
-#        - .eslintcache
-#        - .stylelintcache
-#  script:
-#    - npm run prettier:check
-#    - npm run lint
+lint-mr:
+  stage: precheck
+  <<: *retry_and_interruptible
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
+    - when: never
+  needs:
+    - install-dependencies
+  cache:
+    - <<: *node_modules_cache
+    - key: $CI_COMMIT_REF_SLUG
+      paths:
+        - .eslintcache
+        - .stylelintcache
+  script:
+    - npm run prettier -- --check
+    - npm run lint
 
 build:
   stage: build

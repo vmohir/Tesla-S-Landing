@@ -65,7 +65,7 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
-        test: /\.(png|ttf|svg|json|webmanifest|ico)$/,
+        test: /\.(jpg|png|ttf|svg|json|webmanifest|ico)$/,
         oneOf: [
           {
             resourceQuery: /raw/,

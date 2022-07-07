@@ -9,7 +9,7 @@
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
     "test": "jest",
-    "prettier:write": "prettier --write \"./src/**/*.{html,scss,js,json}\"",
+    "prettier": "prettier \"./src/**/*.{html,scss,js,json}\"",
     "stylelint": "stylelint \"./src/styles/**/*\" --cache",
     "eslint": "eslint \"./src/scripts/**/*\" --cache",
     "lint": "npm run eslint && npm run stylelint"
