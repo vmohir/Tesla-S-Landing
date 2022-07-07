@@ -14,7 +14,7 @@ npm install
 npm start
 
 # Run tests
-npm run test
+npm test
 
 # Build
 npm run build # for production
