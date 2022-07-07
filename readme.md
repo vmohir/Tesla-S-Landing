@@ -70,3 +70,38 @@ The CI contains 4 stages:
 - precheck: Runs all of the linters on merge requests
 - build: Runs `npm run build`
 - publish: Deploys the project on GitLab pages
+
+## To Do
+
+- [x] dark mode
+- [x] up/down for inputs
+- [x] browserslist
+- [x] polyfills
+- [x] BEM
+- [x] css accent colors
+- [x] bottom 3d shadow for "AC on" button
+- [x] skip to main accessibility
+- [x] favicon
+- [x] Prettier
+- [x] stylelint
+- [x] eslint
+- [x] ac mode icon animation
+- [x] no-js support
+- [x] documentation in readme.md
+- [x] document ADRs
+- [x] end-to-end test
+- [x] responsive menu
+- [x] flex separator lines responsiveness
+- [x] svg and image optimizations
+- [x] netlify
+- [x] Gitlab CI
+- [x] car's wheel size animation
+- [x] commitlint husky
+- [x] open graph protocol
+- [x] unit tests
+- [ ] add the form values to url as query parameters
+- [ ] error handling
+- [ ] animation for incrementing and decrementing kilometer values
+- [ ] support CSS reduced motion
+- [ ] [focus on form after scroll down button](https://web.dev/building-a-sidenav-component/#focus-ux)
+- [ ] loading indicator until JSON is loaded
