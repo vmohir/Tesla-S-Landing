@@ -93,7 +93,13 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src/pages/no-js.ejs'),
-      templateParameters: { '100D': metric100D, P100D: metricP100D },
+      templateParameters: {
+        car100D: metric100D,
+        carP100D: metricP100D,
+        wheelSizes: [19, 21],
+        temps: [-10, 0, 10, 20, 30, 40],
+        kmhs: [70, 80, 90, 100, 110, 120, 130, 140],
+      },
       filename: 'no-js.html',
       chunks: ['styles'],
     }),

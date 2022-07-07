@@ -1,20 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <%= require('../partials/header.html') %>
-  </head>
-  <body>
-    <%= require('../partials/header.html') %>
-    <main id="main">
-      <%= require('../partials/intro.html') %>
-      <!-- prettier-ignore -->
-      <div>
-      <% P100D.forEach(p => { %>
-        <% p.hwy.forEach(k => { %>
-          <div class="t<%= p.temp %> w<%= p.wheelsize %> ac-<%= p.ac %> kmh<%= k.kmh %>"><%= k.kilometers %></div>
+<html lang="en" dir='ltr'>
+<head>
+    <script>
+        location.href = '/';
+    </script>
+    <%= require('../partials/head.html') %>
+
+    <style>
+
+        <% wheelSizes.forEach((w) => { %>
+        #wheel-size-<%= w %>:checked ~ .car-km-ranges-table tbody tr:not(.w<%= w %>),
         <% }); %>
-      <% }); %>
-    </div>
-    </main>
-  </body>
+        <% temps.forEach((t) => { %>
+        #temp-<%= t %>:checked ~ .car-km-ranges-table tbody tr:not(.t<%= t %>),
+        <% }); %>
+        <% kmhs.forEach((k) => { %>
+        #kmh-<%= k %>:checked ~ .car-km-ranges-table tbody tr:not(.kmh<%= k %>),
+        <% }); %>
+
+        #ac-toggle:checked ~ .car-km-ranges-table tbody tr.ac-off,
+        #ac-toggle:not(:checked) ~ .car-km-ranges-table tbody tr.ac-on
+        {
+          display: none;
+        }
+
+        .input-label {
+          padding: 1rem;
+          display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<%= require('../partials/header.html') %>
+<main id="main">
+    <%= require('../partials/intro.html') %>
+
+    <section id="range-calculator" class="calc">
+        <%= require('../partials/car-image.html') %>
+
+        <div class='container'>
+            <% wheelSizes.forEach((w, i) => { %>
+                <input type="radio" class="" name="wheelsize" value="<%= w %>" id='wheel-size-<%= w %>' <%= i === 0 ? 'checked' : ''%> />
+                <label class="input-label surface1" for='wheel-size-<%= w %>'><%= w %>"</label>
+            <% }); %>
+
+            <br><br>
+
+            <% temps.forEach((t, i) => { %>
+                <input type="radio" class="" name="temp" value="<%= t %>" id='temp-<%= t %>' <%= i === 0 ? 'checked' : ''%> />
+                <label class="input-label surface1" for='temp-<%= t %>'><%= t %>"</label>
+            <% }); %>
+
+            <br><br>
+
+            <% kmhs.forEach((k, i) => { %>
+                <input type="radio" class="" name="kmh" value="<%= k %>" id='kmh-<%= k %>' <%= i === 0 ? 'checked' : ''%> />
+                <label class="input-label surface1" for='kmh-<%= k %>'><%= k %>"</label>
+            <% }); %>
+
+            <br><br>
+
+            <input type='checkbox' id='ac-toggle' >
+            <label for='ac-toggle'>Cool/Heat is on</label>
+
+            <br>
+            <br>
+
+            <table class="car-km-ranges-table">
+                <thead>
+                <tr>
+                    <th><%= require('../partials/car-100d-picture.html') %></th>
+                    <th><%= require('../partials/car-p100d-picture.html') %></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% car100D.forEach((car,i) => { %>
+                    <% car.hwy.forEach((hwy,j) => { %>
+                        <tr class="t<%= car.temp %> w<%= car.wheelsize %> ac-<%= car.ac %> kmh<%= hwy.kmh %> km-indicator-row">
+                            <td class="km-indicator">
+                                <span class="km-indicator__value"><%= hwy.kilometers %></span>
+                                <span class="km-indicator__unit">KM</span>
+                            </td>
+                            <td class="km-indicator">
+                                <span class="km-indicator__value"><%= carP100D[i].hwy[j].kilometers %></span>
+                                <span class="km-indicator__unit">KM</span>
+                            </td>
+                        </tr>
+                    <% }); %>
+                <% }); %>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="container">
+            <p>
+                The actual amount of range that you experience will vary based on your particular use
+                conditions. Your vehicle range is also dependent on other conditions, such as vehicle
+                configuration, battery age and condition, driving style and operating, environmental and climate
+                conditions. See how some of these particular use conditions may affect your range in our
+                simulation model.
+            </p>
+        </div>
+
+    </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <%= require('../partials/footer.html') %>
+  </div>
+</footer>
+
+</body>
 </html>

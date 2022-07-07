@@ -272,21 +272,6 @@
   {
     "temp": 30,
     "wheelsize": 21,
-    "ac": "off",
-    "hwy": [
-      { "kmh": 70, "kilometers": 855 },
-      { "kmh": 80, "kilometers": 759 },
-      { "kmh": 90, "kilometers": 672 },
-      { "kmh": 100, "kilometers": 592 },
-      { "kmh": 110, "kilometers": 524 },
-      { "kmh": 120, "kilometers": 468 },
-      { "kmh": 130, "kilometers": 419 },
-      { "kmh": 140, "kilometers": 371 }
-    ]
-  },
-  {
-    "temp": 30,
-    "wheelsize": 21,
     "ac": "on",
     "hwy": [
       { "kmh": 70, "kilometers": 751 },

@@ -2,18 +2,34 @@
 <html lang="en" dir="ltr">
   <head>
     <noscript>
-      <meta http-equiv="refresh" content="url=/no-js.html" />
+      <meta http-equiv="refresh" content="0; url=/no-js.html" />
     </noscript>
     <%= require('../partials/head.html') %>
+    <meta name="color-scheme" content="dark light" />
   </head>
   <body>
     <%= require('../partials/header.html') %>
     <!-- prettier-ignore -->
     <main id="main">
       <%= require('../partials/intro.html') %>
-      <%= require('../partials/calculator.html') %>
+      <section id="range-calculator" class="calc">
+        <%= require('../partials/car-km-ranges.html') %>
+        <%= require('../partials/calculator.html') %>
+      </section>
+
     </main>
 
-    <%= require('../partials/footer.html') %>
+    <footer class="footer">
+      <div class="container">
+        <%= require('../partials/footer.html') %>
+
+        <div class="dark-mode">
+          <label class="dark-mode__toggle">
+            <input type="checkbox" name="dark-mode" id="enable-dark-mode" class="dark-mode__checkbox" />
+            <span>Dark mode</span>
+          </label>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
