@@ -1,5 +1,7 @@
 # Tesla Model S
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d83464cb-53e2-4820-972e-f7d0348a5f50/deploy-status)](https://app.netlify.com/sites/sendcloud-tesla-landing/deploys)
+
 This is the desktop version of a landing page of a hypothetical Tesla Model S website.
 
 ## Usage
@@ -51,6 +53,8 @@ In order to support this browser, I've used some [hacks](http://browserhacks.com
 
 - `@media screen\0 {}` to apply styles only to IE11
 - Provided an implementation for `HtmlInputElement.stepUp` and `HtmlInputElement.stepDown`
+- Used JPG format for images instead of WebP
+- Used TTF format for fonts instead of WOFF2
 
 **Recommended Links**:
 

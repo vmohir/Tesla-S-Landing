@@ -55,15 +55,12 @@ describe('NumberInputComponent', () => {
       },
       '50',
     ],
-  ])(
-    'should update input value when spin elements are clicked',
-    async (initialValue, clicks, result) => {
-      inputElm.value = initialValue;
+  ])('should update input value when spin elements are clicked', (initialValue, clicks, result) => {
+    inputElm.value = initialValue;
 
-      clicks();
-      setTimeout(() => {
-        expect(inputElm.value).toBe(result);
-      });
-    },
-  );
+    clicks();
+    setTimeout(() => {
+      expect(inputElm.value).toBe(result);
+    });
+  });
 });

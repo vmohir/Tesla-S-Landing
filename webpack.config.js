@@ -8,6 +8,7 @@ const postHtml = require('posthtml');
 const postHtmlInlineSvg = require('posthtml-inline-svg');
 const postHtmlInclude = require('posthtml-include');
 const config = require('./config.json');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
   // context: path.resolve(__dirname, 'src'),
@@ -106,6 +107,14 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(),
     new CleanWebpackPlugin(),
+    new ImageMinimizerPlugin({
+      minimizer: {
+        implementation: ImageMinimizerPlugin.squooshMinify,
+        options: {
+          // Your options for `squoosh`
+        },
+      },
+    }),
   ],
   // optimization: {
   //   runtimeChunk: 'single',
