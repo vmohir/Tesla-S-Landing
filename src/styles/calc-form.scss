@@ -34,6 +34,19 @@
   &:not(:last-child) {
     border-right: 1px solid var(--surface3);
   }
+
+  @media (max-width: 1400px) {
+    &:nth-child(2) {
+      border-right: none;
+    }
+  }
+
+  @media (max-width: 780px) {
+    flex-basis: 500px;
+    &:nth-child(1) {
+      border-right: none;
+    }
+  }
 }
 
 .calc-form__group-label {
