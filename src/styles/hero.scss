@@ -11,7 +11,7 @@
 
 .hero {
   height: 50vw;
-  height: clamp(200px, 50vw, calc(90vh - 72px));
+  height: clamp(100px, 50vw, calc(90vh - 72px));
   overflow: hidden;
   position: relative;
 

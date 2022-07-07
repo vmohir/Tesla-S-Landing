@@ -9,5 +9,6 @@ module.exports = {
     'comment-no-empty': [true, { severity: 'error' }],
     'no-duplicate-selectors': [true, { severity: 'warning' }],
     'color-function-notation': 'modern',
+    'media-feature-name-no-unknown': 'off',
   },
 };

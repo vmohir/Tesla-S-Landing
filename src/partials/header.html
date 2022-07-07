@@ -1,6 +1,13 @@
 <a class="skip-to-main-link" href="#main">Skip to main content</a>
 <header>
-  <div class="logo"><img src="../images/logo.svg" alt="TESLA Logo" height="16px" /></div>
+  <div class="logo">
+    <img src="../images/logo.svg" alt="TESLA Logo" height="16px" />
+  </div>
+  <input type="checkbox" class="mobile-menu-toggle__input" id="menu-toggle" />
+  <label class="mobile-menu-toggle__inner" for="menu-toggle">
+    <span class="mobile-menu-toggle__line"></span>
+    <span class="mobile-menu-toggle__line"></span>
+  </label>
   <nav class="nav">
     <div class="nav__inner">
       <ul class="nav__menu container">
@@ -13,19 +20,17 @@
     </div>
   </nav>
   <div class="hero">
-    <div>
-      <picture>
-        <source media='(max-width: 700px)' srcset='../images/hero-image.jpg' />
-        <source media='(min-width: 701px)' srcset='../images/hero-image@2x.jpg' />
-        <img
-          class='hero__image'
-          src='../images/hero-image@2x.jpg'
-          alt='A picture of Tesla car'
-          width='1400'
-          height='800'
-        />
-      </picture>
-    </div>
+    <picture>
+      <source media="(max-width: 700px)" srcset="../images/hero-image.jpg" />
+      <source media="(min-width: 701px)" srcset="../images/hero-image@2x.jpg" />
+      <img
+        class="hero__image"
+        src="../images/hero-image@2x.jpg"
+        alt="A picture of Tesla car"
+        width="1400"
+        height="800"
+      />
+    </picture>
   </div>
   <!-- <img
       srcset="../images/hero-image.png 700w, ../images/hero-image@2x.png 1400w"

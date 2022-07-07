@@ -55,6 +55,7 @@ In order to support this browser, I've used some [hacks](http://browserhacks.com
 - Provided an implementation for `HtmlInputElement.stepUp` and `HtmlInputElement.stepDown`
 - Used JPG format for images instead of WebP
 - Used TTF format for fonts instead of WOFF2
+- `&::-ms-check` to hide checkbox and radio buttons
 
 **Recommended Links**:
 
