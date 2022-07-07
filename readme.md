@@ -8,6 +8,8 @@ The project is auto-published to Netlify: https://sendcloud-tesla-landing.netlif
 
 ## Usage
 
+Node v16.10.0 and NPM v7.24.0
+
 ```bash
 # Install npm packages
 npm install
