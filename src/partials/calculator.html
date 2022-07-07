@@ -1,8 +1,8 @@
 <div class="calc__form">
   <form id="range-calculator-form" class="calc-form">
     <div class="calc-form__group">
-      <fieldset>
-        <legend class="calc-form__group-label">Speed</legend>
+      <div>
+        <div class="calc-form__group-label">Speed</div>
         <label
           class="number-input surface1"
           aria-label="Speed in kilometers per hour"
@@ -38,12 +38,12 @@
           />
           <span class="number-input__suffix">KMH</span>
         </label>
-      </fieldset>
+      </div>
     </div>
 
     <div class="calc-form__group">
-      <fieldset>
-        <legend class="calc-form__group-label">Outside temperature</legend>
+      <div>
+        <div class="calc-form__group-label">Outside temperature</div>
         <div class="calc-form__temperature">
           <label
             class="number-input surface1"
@@ -129,48 +129,50 @@
             </svg>
           </label>
         </div>
-      </fieldset>
+      </div>
     </div>
 
     <div class="calc-form__group">
-      <fieldset>
-        <legend class="calc-form__group-label">Wheels</legend>
+      <div>
+        <div class="calc-form__group-label">Wheels</div>
 
-        <input
-          type="radio"
-          class="calc-form__wheel-radio-input"
-          name="wheelsize"
-          value="19"
-          id="wheel-size-19"
-          checked
-        />
-        <label class="calc-form__wheel-option surface1" for="wheel-size-19">
-          <icon
-            src="../images/icon-wheel.svg"
-            width="80px"
-            class="calc-form__wheel-icon calc-form__wheel-icon--small"
-            aria-hidden="true"
-          ></icon>
-          <span>19"</span>
-        </label>
+        <div class="calc-form__wheel-group">
+          <input
+            type="radio"
+            class="calc-form__wheel-radio-input"
+            name="wheelsize"
+            value="19"
+            id="wheel-size-19"
+            checked
+          />
+          <label class="calc-form__wheel-option surface1" for="wheel-size-19">
+            <icon
+              src="../images/icon-wheel.svg"
+              width="80px"
+              class="calc-form__wheel-icon calc-form__wheel-icon--small"
+              aria-hidden="true"
+            ></icon>
+            <span>19"</span>
+          </label>
 
-        <input
-          type="radio"
-          class="calc-form__wheel-radio-input"
-          name="wheelsize"
-          value="21"
-          id="wheel-size-21"
-        />
-        <label class="calc-form__wheel-option surface1" for="wheel-size-21">
-          <icon
-            src="../images/icon-wheel.svg"
-            width="80px"
-            class="calc-form__wheel-icon"
-            aria-hidden="true"
-          ></icon>
-          <span>21"</span>
-        </label>
-      </fieldset>
+          <input
+            type="radio"
+            class="calc-form__wheel-radio-input"
+            name="wheelsize"
+            value="21"
+            id="wheel-size-21"
+          />
+          <label class="calc-form__wheel-option surface1" for="wheel-size-21">
+            <icon
+              src="../images/icon-wheel.svg"
+              width="80px"
+              class="calc-form__wheel-icon"
+              aria-hidden="true"
+            ></icon>
+            <span>21"</span>
+          </label>
+        </div>
+      </div>
     </div>
   </form>
 </div>

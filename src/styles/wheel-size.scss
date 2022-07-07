@@ -17,6 +17,10 @@ $active-wheel-rotation-degree: 45deg;
   font-size: 2rem;
   cursor: pointer;
 
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+
   &:hover {
     .calc-form__wheel-icon {
       --rotate-transform: #{$active-wheel-rotation-degree};
@@ -46,4 +50,8 @@ $active-wheel-rotation-degree: 45deg;
 
 .calc-form__wheel-icon--small {
   transform: scale(0.8) rotate(var(--rotate-transform, 0deg));
+}
+
+.calc-form__wheel-group {
+  display: flex;
 }

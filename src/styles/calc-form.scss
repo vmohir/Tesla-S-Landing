@@ -1,4 +1,4 @@
-@use 'src/styles/ac-toggle';
+@use 'ac-toggle';
 @use 'number-input';
 @use 'wheel-size';
 
@@ -27,6 +27,9 @@
   padding: 0 2rem;
   height: 140px;
   margin: 1rem 0;
+  flex: 0 0 auto;
+  min-width: 0;
+  max-width: 100%;
 
   &:not(:last-child) {
     border-right: 1px solid var(--surface3);
@@ -36,12 +39,11 @@
 .calc-form__group-label {
   font-weight: 200;
   font-size: 1.5rem;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.05rem;
   margin-bottom: 1.5rem;
   color: var(--text2);
 }
 
 .calc-form__temperature {
   display: flex;
-  flex-wrap: nowrap;
 }

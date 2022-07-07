@@ -10,12 +10,14 @@
 // object-fit and @supports queries aren't supported in IE11. The workaround:
 
 .hero {
-  height: calc(90vh - 72px);
+  height: 50vw;
+  height: clamp(200px, 50vw, calc(90vh - 72px));
   overflow: hidden;
   position: relative;
 
   .hero__image {
     max-width: 100%;
+    height: auto;
     width: 100%;
     position: absolute;
     top: 50%;
