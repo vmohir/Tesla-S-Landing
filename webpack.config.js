@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postHtml = require('posthtml');
 const postHtmlInlineSvg = require('posthtml-inline-svg');
 const postHtmlInclude = require('posthtml-include');
+const config = require('./config.json');
 
 module.exports = {
   // context: path.resolve(__dirname, 'src'),
@@ -28,7 +29,7 @@ module.exports = {
     },
     hot: true,
     open: true,
-    port: 9000,
+    port: config.port,
   },
   module: {
     rules: [
