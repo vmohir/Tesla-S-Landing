@@ -8,7 +8,7 @@ describe('End to end tests', () => {
   beforeAll(async () => {
     driver = new Builder().forBrowser('chrome').build();
     await driver.get(url);
-  });
+  }, 15000);
 
   it('should scroll to calculator on chevron down icon click', async () => {
     await driver.executeScript(() => {
